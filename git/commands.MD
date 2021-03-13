@@ -15,7 +15,7 @@
 1. `git reset --hard HEAD~2`
     - undo commit and discard changes for 2 previous commits
 
-### Misc
+### Miscellanous
 
 1. `git reflog`
     - Reference log
