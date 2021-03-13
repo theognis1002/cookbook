@@ -1,3 +1,9 @@
+### Config
+
+1. Edit git credentials in `~/.gitconfig`
+    - `git config --global user.name "theognis1002"`
+    - `git config --global user.email "theognis1002@gmail.com`
+
 ### Fetch
 
 1. `git fetch --prune`
@@ -20,6 +26,14 @@
     - undo last commit but keep changes in staging
 1. `git reset --hard HEAD~2`
     - undo commit and discard changes for 2 previous commits
+
+### Stash
+
+1. `git stash`
+1. `git stash list`
+1. `git stash apply <stash #>`
+1. `git stash drop <stash #>`
+1. `git stash clear`
 
 ### Miscellanous
 
