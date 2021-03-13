@@ -1,3 +1,9 @@
+### Fetch
+
+1. `git fetch --prune`
+    - Removes branches locally that were removed remotely
+    - Can set in config by doing `git config --global fetch.prune true`
+
 ### Rebase
 
 1. Checkout to new branch that will be placed/configured onto the target branch
