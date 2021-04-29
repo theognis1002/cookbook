@@ -26,6 +26,8 @@
     - undo last commit but keep changes in staging
 1. `git reset --hard HEAD~2`
     - undo commit and discard changes for 2 previous commits
+1. `git update-ref -d HEAD`
+    - reset everything including initial commit
 
 ### Stash
 
