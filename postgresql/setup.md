@@ -6,6 +6,6 @@
 1. `ALTER ROLE <username> SET client_encoding to 'utf8';`
 1. `ALTER ROLE <username> SET default_transaction_isolation to 'read committed';`
 1. `ALTER ROLE <username> SET timezone to 'UTC';`
-1. `GRANT ALL PRIVELEGES ON DATABASE <db_name> TO <username>;`
+1. `GRANT ALL PRIVILEGES ON DATABASE <db_name> TO <username>;`
 1. `\q`
 1. `exit`
