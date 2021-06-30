@@ -28,6 +28,10 @@
     - undo commit and discard changes for 2 previous commits
 1. `git update-ref -d HEAD`
     - reset everything including initial commit
+1. `git reset <commit_id>`
+    - reset specific commit by id#
+1. `git reset <file>`
+    - unstages the file, but preserves the file contents.
 
 ### Stash
 
@@ -37,7 +41,23 @@
 1. `git stash drop <stash #>`
 1. `git stash clear`
 
+### Undo Merge
+
+1. Checkout to the master branch: `$ git checkout master`
+1. Run git log and get the id of the merge commit: `$ git log --oneline`
+1. Revert merge by commit id: `$ git revert -m 1 <merge-commit-id>`
+1. Commit the revert and push changes to the remote repo.
+
+### Credentials
+
+1. `git config --global user.name <username>`
+1. `git config --global user.email <email>`
+
 ### Miscellanous
 
 1. `git reflog`
     - Reference log
+1. `git branch -m <new_branch_name>`
+    - Rename current branch
+1. `git diff [source branch] [target branch]`
+    - Preview changes before merging
