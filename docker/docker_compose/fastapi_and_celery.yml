@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+    api:
+        build: ./api
+        ports:
+            - 8080:8080
+        command: uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+        volumes:
+            - ./api:/usr/src/app
+        env_file: .env
+        environment:
+            - CELERY_BROKER_URL=redis://redis:6379/0
+            - CELERY_RESULT_BACKEND=redis://redis:6379/0
+        depends_on:
+            - postgres
+            - redis
+    postgres:
+        image: "postgres:9.6"
+        env_file: .env
+        environment:
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        volumes:
+            - ./var/lib/postgresql/data/
+        ports:
+            - 5432:5432
+    worker:
+        build: ./api
+        command: celery worker --app=message_queue.celery --loglevel=info --logfile=/var/log/celery.log
+        volumes:
+            - ./api:/usr/src/app
+        environment:
+            - CELERY_BROKER_URL=redis://redis:6379/0
+            - CELERY_RESULT_BACKEND=redis://redis:6379/0
+        depends_on:
+            - api
+            - postgres
+            - redis
+
+    redis:
+        image: redis:6-alpine
+
+    dashboard:
+        build: ./api
+        command: flower --app=message_queue.celery --port=80 --broker=redis://redis:6379/0
+        ports:
+            - 80:80
+        environment:
+            - CELERY_BROKER_URL=redis://redis:6379/0
+            - CELERY_RESULT_BACKEND=redis://redis:6379/0
+        depends_on:
+            - api
+            - postgres
+            - redis
+            - worker

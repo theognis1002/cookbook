@@ -1,0 +1,74 @@
+version: "3"
+services:
+    app:
+        build: .
+        env_file:
+            - .env
+        restart: always
+        ports:
+            - 5000:5000
+        volumes: ["./app:/app"]
+        environment:
+            - CELERY_BROKER_URL=redis://redis:6379/0
+            - CELERY_RESULT_BACKEND=redis://redis:6379/0
+        depends_on:
+            - postgres
+            - redis
+            - worker
+        links:
+            - postgres:db
+            - redis:redis
+        networks:
+            - localnetwork
+    postgres:
+        image: "postgres:9.6"
+        env_file: .env
+        restart: always
+        environment:
+            - POSTGRES_PASSWORD=postgres
+        volumes:
+            - /var/lib/postgresql/data/
+        ports:
+            - 5432:5432
+        networks:
+            - localnetwork
+    redis:
+        image: redis
+        networks:
+            - localnetwork
+    worker:
+        build: .
+        env_file: .env
+        restart: always
+        command: celery -A app.src.tasks.celery worker --loglevel=info
+        depends_on:
+            - postgres
+            - redis
+        links:
+            - redis:redis
+            - postgres:db
+        networks:
+            - localnetwork
+    monitor:
+        build: .
+        env_file: .env
+        ports:
+            - 5555:5555
+        command: flower -A app.src.tasks.celery --port=5555 --broker=redis://redis:6379/0
+        volumes: ["./app:/app"]
+        depends_on:
+            - redis
+        links:
+            - redis:redis
+        networks:
+            - localnetwork
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
+        depends_on:
+            - postgres
+networks:
+    localnetwork:
+        driver: bridge
