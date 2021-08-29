@@ -1,5 +1,4 @@
-from tortoise import Tortoise, fields, run_async
-from tortoise import models
+from tortoise import Tortoise, fields, models, run_async
 
 
 class Event(models.Model):

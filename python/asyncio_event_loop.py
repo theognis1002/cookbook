@@ -3,7 +3,6 @@ import random
 import time
 
 import aiohttp
-
 from utils.proxies import proxies
 
 start_time = time.time()

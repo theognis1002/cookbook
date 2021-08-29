@@ -7,8 +7,10 @@
 ### Fetch
 
 1. `git fetch --prune`
-    - Removes branches locally that were removed remotely
+    - Marks branches as 'gone' locally that were removed remotely
     - Can set in config by doing `git config --global fetch.prune true`
+1. `git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done`
+    - Does above + removes branches locally
 
 ### Rebase
 
@@ -32,6 +34,14 @@
     - reset specific commit by id#
 1. `git reset <file>`
     - unstages the file, but preserves the file contents.
+
+### Squash
+
+1. `git reset --soft HEAD~5`
+    - last 5 commits
+1. `git add .`
+1. `git commit -m "Update"`
+1. `git push -f`
 
 ### Stash
 
