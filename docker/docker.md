@@ -15,3 +15,8 @@
 ### Non-sudo docker
 
 1. `sudo usermod -aG docker <current_user>`
+
+### Docker interactive terminal
+
+1. `docker exec -it <container> <command>`
+    - ie; run shell for specific container `docker exec -it 1ae3b675af sh`
