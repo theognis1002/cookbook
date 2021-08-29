@@ -9,8 +9,13 @@
 
 ### Docker prune
 
-1. `docker system prune`
-1. `docker volume prune`
+1. `docker system prune -f`
+1. `docker volume prune -f`
+
+### Docker run one-off commands
+
+1. `docker compose run <service_name> <command>`
+    - ie; `docker compose run app python manage.py createsuperuser`
 
 ### Non-sudo docker
 
