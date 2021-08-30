@@ -11,7 +11,7 @@ hello() {
 	echo Nice to meet you, $1
 }
 
-# Represents all positiona parameters
+# Represents all positional parameters
 $@
 
 # Get all params from position 2
