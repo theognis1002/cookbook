@@ -28,5 +28,5 @@ WantedBy=multi-user.target
     - check out that everything is working
 1. `systemctl enable`
     - starts service on boot
-1. `journalctl -u <service_name>`
-    - check service logs
+1. `journalctl -u <service_name>` -f
+    - check tail of service logs
