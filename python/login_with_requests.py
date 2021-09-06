@@ -1,16 +1,16 @@
 import requests
 
-postData = {
+data = {
     "name": "joe123",
     "pass": "password1",
     "form_id": "user_login",
     "op": "Log in",
 }
 
-loginUrl = "http://www.reddit.com"
+login_url = "http://www.reddit.com"
 
 session = requests.Session()
-response = session.post(loginUrl, data=postData)
+response = session.post(login_url, data=data)
 
 print(response.text)
 print(response.headers)
