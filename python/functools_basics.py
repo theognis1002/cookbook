@@ -5,6 +5,8 @@ import functools
 """
 
 i = 0
+
+
 def check_function_ran():
     global i
     i += 1
@@ -15,11 +17,11 @@ def check_function_ran():
 def count_vowels(sentence):
     sentence = sentence.casefold()
     check_function_ran()  # print output if 'count_vowels' function was ran and cache was not used
-    return sum(sentence.count(vowel) for vowel in 'aeiou')
+    return sum(sentence.count(vowel) for vowel in "aeiou")
 
 
 for _ in range(9):
-    result = count_vowels('hello world')
+    result = count_vowels("hello world")
     print(result)
 
 
@@ -49,4 +51,3 @@ print(example_func.__doc__)  # prints 'does some math'
 print(
     example_func(3)
 )  # prints return value and extra decorator functionality "example_func was called"
-
