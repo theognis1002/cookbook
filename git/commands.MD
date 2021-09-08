@@ -58,11 +58,13 @@
 1. Revert merge by commit id: `$ git revert -m 1 <merge-commit-id>`
 1. Commit the revert and push changes to the remote repo.
 
-### Credentials
+### Config/Credentials
 
 1. `git config --global user.name <username>`
 1. `git config --global user.email <email>`
-
+1. `git config --global core.editor "vim"`
+1. `git config --global credential.useHttpPath true`
+    - setup credentials on a per repo basis
 ### Miscellanous
 
 1. `git reflog`
