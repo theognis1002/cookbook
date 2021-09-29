@@ -14,7 +14,8 @@ If you are a beginner, you will probably want to start out with one language lik
 -   It is quicker than looking up documentation or looking for a Stack Overflow answer.
 -   Explore new topics
 -   Learn new programming languages.
--   Tips for Building a Cookbook
+-   
+### Tips for Building a Cookbook
 -   Store your cookbook in a version control system like Git.
 -   Keep a to do list of topics or programming languages you want to explore and learn
 -   It does not have to be just code. I have a lot of plain text .txt files with notes on things like how to create a Python pip package, creating Ruby Gems, or how to create a runnable JAR in Java. Sometimes tips on installing prerequisites if something was difficult or just notes on how to compile and run programs.
