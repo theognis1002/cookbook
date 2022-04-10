@@ -36,7 +36,11 @@
     - unstages the file, but preserves the file contents.
 
 ### Squash
-
+Merge:
+1. `git merge --squash`
+Rebase:
+1. `git rebase -i <commit|branch>`
+Manual:
 1. `git reset --soft HEAD~5`
     - last 5 commits
 1. `git add .`
@@ -47,16 +51,21 @@
 
 1. `git stash`
 1. `git stash list`
-1. `git stash apply <stash #>`
+1. `git stash apply <stash #>` or `git stash pop <stash #>`
+    - apply stash to work dir but keeps in stash
+    - pop stash to work dir and remove from stash
 1. `git stash drop <stash #>`
 1. `git stash clear`
 
 ### Undo Merge
-
+Method #1
 1. Checkout to the master branch: `$ git checkout master`
 1. Run git log and get the id of the merge commit: `$ git log --oneline`
 1. Revert merge by commit id: `$ git revert -m 1 <merge-commit-id>`
 1. Commit the revert and push changes to the remote repo.
+Method #2
+1. `git reflog`
+1. `git reset HEAD{1} --hard`
 
 ### Config/Credentials
 
@@ -65,6 +74,11 @@
 1. `git config --global core.editor "vim"`
 1. `git config --global credential.useHttpPath true`
     - setup credentials on a per repo basis
+
+### Debugging
+1. `git-bisect` - Use binary search to find the commit that introduced a bug
+    - `git bisect <start|good|bad|new|reset>`
+
 ### Miscellanous
 
 1. `git reflog`
