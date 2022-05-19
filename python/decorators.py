@@ -55,6 +55,25 @@ hello_world()
 # >>> hello world!
 # >>> hello world!
 
+def dec_with_args(*args, **kwargs):
+    def _dec_with_args(func):
+        def wrapper(*args, **kwargs):
+            func(*args, **kwargs)
+        return wrapper
+
+    if len(args) == 1 and callable(args[0]):
+        # No arguments, this is the decorator
+        # Set default values for the arguments
+        return _dec_with_args(args[0])
+    else:
+        # This is just returning the decorator
+        return _dec_with_args
+
+
+@dec_with_args("my_arg")
+def test():
+    print("my func")
+
 """
 'stateful' decorators - keeps 'state' in memory between function calls. takes advantage of the fact that the outer function only runs once when we decorate the function
 """
