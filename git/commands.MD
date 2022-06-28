@@ -12,6 +12,14 @@
 1. `git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done`
     - Does above + removes branches locally
 
+### Checkout
+1. `git checkout -b feature/my_branch`
+    - Switch to new local branch
+1. `git checkout -t origin/feature/remote_branch`
+    - Switch to remote branch
+1. `git checkout -`
+    - Switch to last checked-out branch
+
 ### Rebase
 
 1. Checkout to new branch that will be placed/configured onto the target branch
