@@ -16,9 +16,18 @@
 
 1. Checkout to new branch that will be placed/configured onto the target branch
     - `git checkout <new_branch>`
-1. Rebase in interactive mode to target branch (typically master branch)
-    - `git rebase -i origin/master`
+1. Rebase in interactive mode to target branch (typically main branch)
+    - `git rebase -i origin/main`
     - `pick`, `squash`, `amend`, `fix`
+1. Rebase specific commit range to target branch (typically main branch)
+    - `git rebase -i main <commit_id>`
+
+### Cherry Pick
+
+1. Move specific commit onto new branch (will create assign new commit hash)
+    - `git cherry-pick <commit_id>`
+1. Cherry pick specific commit range to target branch
+    - `git cherry-pick <start_commit_id>^..<end_commit_id>`
 
 ### Reset
 
@@ -59,7 +68,7 @@ Manual:
 
 ### Undo Merge
 Method #1
-1. Checkout to the master branch: `$ git checkout master`
+1. Checkout to the main branch: `$ git checkout main`
 1. Run git log and get the id of the merge commit: `$ git log --oneline`
 1. Revert merge by commit id: `$ git revert -m 1 <merge-commit-id>`
 1. Commit the revert and push changes to the remote repo.
@@ -76,7 +85,7 @@ Method #2
     - setup credentials on a per repo basis
 
 ### Debugging
-1. `git-bisect` - Use binary search to find the commit that introduced a bug
+1. `git bisect` - Use binary search to find the commit that introduced a bug
     - `git bisect <start|good|bad|new|reset>`
 
 ### Miscellanous
