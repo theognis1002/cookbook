@@ -101,3 +101,35 @@ class Comment:
 class AttrComment:
     id: int = 0
     text: str = ""
+
+
+from dataclasses import dataclass, field
+from datetime import datetime, timedelta
+from typing import Any, Union
+
+
+@dataclass(frozen=True)
+class Response:
+    client: Any
+    api_url: str
+    http_method: str
+    status_code: int
+    req_args: dict
+    headers: dict
+    data: dict
+    request_time: datetime
+    response_time: datetime
+    elapsed_time: timedelta = field(init=False)
+    log_id: str = field(init=False, repr=False)
+
+    def __post_init__(self):
+        if isinstance(self.data, dict):
+            log_id = self.data.get("referenceId")
+            super().__setattr__("log_id", log_id)
+
+        super().__setattr__("elapsed_time", self.response_time - self.request_time)
+
+    def validate(self):
+        if self.status_code == 200 and isinstance(self.data, dict):
+            return self
+        raise Exception(message="error!", response=self)
