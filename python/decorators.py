@@ -55,10 +55,12 @@ hello_world()
 # >>> hello world!
 # >>> hello world!
 
+
 def dec_with_args(*args, **kwargs):
     def _dec_with_args(func):
         def wrapper(*args, **kwargs):
             func(*args, **kwargs)
+
         return wrapper
 
     if len(args) == 1 and callable(args[0]):
@@ -73,6 +75,7 @@ def dec_with_args(*args, **kwargs):
 @dec_with_args("my_arg")
 def test():
     print("my func")
+
 
 """
 'stateful' decorators - keeps 'state' in memory between function calls. takes advantage of the fact that the outer function only runs once when we decorate the function
@@ -149,3 +152,28 @@ print(result)
 # >>> 81
 # >>> Using OLD value for compute(3, 4)
 # >>> 81
+
+
+"""
+Class Decorator
+"""
+
+
+class custom_decorator:
+    def __init__(self, function):
+        self.function = function
+
+    def __call__(self, *args, **kwargs):
+        # before function
+        print("before")
+
+        result = self.function(*args, **kwargs)
+
+        # after function
+        print("after")
+        return result
+
+
+@custom_decorator
+def test_func():
+    print("Hello World!")
