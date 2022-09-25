@@ -104,3 +104,9 @@ Method #2
     - Rename current branch
 1. `git diff [source branch] [target branch]`
     - Preview changes before merging
+1. Accidentally creating commit on main branch instead of a separate branch. Courtesy of `https://ohshitgit.com/`
+    - create a new branch from the current state of master
+        - `git branch <new_branch>`
+    - remove the last commit from the master branch
+        - `git reset HEAD~ --hard`
+    - `git checkout <new_branch>`
