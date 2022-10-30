@@ -7,10 +7,12 @@
 1. `docker logs <container_name>`
 1. `docker logs -f` <container_name> <--- continuous logs
 
-### Docker prune
+### Docker cleanup
 
 1. `docker system prune -f`
 1. `docker volume prune -f`
+1. `docker rmi -f $(docker images -aq)`
+    - remove images
 
 ### Non-sudo docker
 
