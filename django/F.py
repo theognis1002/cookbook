@@ -8,6 +8,6 @@ Instead, Django uses the F() object to generate an SQL expression that describes
 
 """
 
-reporter = Reporters.objects.get(name="Tintin")
+reporter = Reporter.objects.get(name="Tintin")
 reporter.stories_filed = F("stories_filed") + 1
 reporter.save()
