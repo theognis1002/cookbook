@@ -1,6 +1,0 @@
-cow
-cat
-bird
-dog
-zebra
-antelope
