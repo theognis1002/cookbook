@@ -30,3 +30,12 @@ WantedBy=multi-user.target
     - starts service on boot
 1. `journalctl -u <service_name>` -f
     - check tail of service logs
+
+
+## basic cmds
+`systemctl list-units --type=service`
+OR
+`systemctl --type=service`
+
+`systemctl disable <service>`
+`systemctl enable <service>`
