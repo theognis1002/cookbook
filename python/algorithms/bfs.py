@@ -25,11 +25,11 @@ from collections import deque
     Graphical representation:
          0
         / \
-        1   2
-        / \   \
-        3   4   5
-            \
-            5
+       1   2
+      / \   \
+     3   4   5
+              \
+               5
 
 """
 
