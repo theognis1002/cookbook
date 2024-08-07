@@ -9,6 +9,7 @@ Improving PostgreSQL performance at the database level involves various strategi
 
    - Memory Settings: Adjust `shared_buffers`, `work_mem`, and `maintenance_work_mem` based on available system memory and workload.
    - Autovacuum: Configure autovacuum settings to ensure timely vacuuming and analyze operations to maintain table statistics.
+   - Transaction Isolation Levels: Adjust transaction level to manage concurrency and prevent issues like dirty reads, non-repeatable reads, and phantom reads.
 
 3. Use Proper Data Types
 
