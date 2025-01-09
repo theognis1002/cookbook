@@ -68,3 +68,15 @@
 
 - `gcloud auth login`: Login to GCP
 - `gcloud container clusters get-credentials <CLUSTER_NAME> --zone us-east1 --project <PROJECT_ID>`: Access specific cluster + swap context
+
+### Practical CLI Workflows
+
+1. Open bash within a pod
+
+```bash
+kubectl config get-contexts
+kubectl config use-context <CONTEXT>
+kubectl get namespaces
+kubectl get pods -n <NAMESPACE>
+kubectl exec -it -n <NAMESPACE> <POD_NAME> -- /bin/bash
+```
