@@ -76,6 +76,7 @@
 ```bash
 kubectl config get-contexts
 kubectl config use-context <CONTEXT>
+kubectl config current-context
 kubectl get namespaces
 kubectl get pods -n <NAMESPACE>
 kubectl exec -it -n <NAMESPACE> <POD_NAME> -- /bin/bash
