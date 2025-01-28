@@ -120,3 +120,11 @@ Method #1
    - View commit history with branches
    - `git checkout -b <branch-name> <commit-hash>`
      - Create (restore) a new branch from a specific commit
+1. `git tag`
+   - List all tags
+   1. `git tag -a v1.0 -m "Version 1.0 release"`
+      - Create a new tag
+   1. `git tag -d v1.0`
+      - Delete a tag
+   1. `git push origin --tags`
+   1. `git push origin v1.0`
