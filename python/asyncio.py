@@ -18,6 +18,13 @@ async def main():
         result = await asyncio.gather(*tasks)
         print(result)
 
+    """
+    NOTE:
+    asyncio.gather is a way to run multiple tasks concurrently and wait for all of them to complete.
+    It's like Promise.all in JavaScript.
+    asyncio.create_task is a way to run a task concurrently and return a task object. It doesn't wait for the task to complete.
+    """
+
 
 if __name__ == "__main__":
     asyncio.run(main())
