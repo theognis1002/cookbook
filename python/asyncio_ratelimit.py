@@ -5,6 +5,7 @@ import aiohttp
 from aiolimiter import AsyncLimiter
 
 limiter = AsyncLimiter(3, 1)
+ref = time.time()
 
 
 async def task(id):
@@ -22,7 +23,9 @@ async def task(id):
 
 
 tasks = [task(i) for i in range(9999)]
-tasks = [task(i) for i in range(9999)]
-ref = time.time()
+
+
+start = time.time()
 result = asyncio.run(asyncio.wait(tasks))
-print(ref)
+
+print(time.time() - start)
