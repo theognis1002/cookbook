@@ -1,19 +1,18 @@
 import concurrent.futures
-import random
+
+import requests
 
 
-def my_function(num):
-    return num ** 2
+def crawl_page(url):
+    response = requests.get(url)
+    print(response.status_code, url)
+    return response.json()
 
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-
-    futures = []
-    for _ in range(99):
-        futures.append(executor.submit(my_function, random.randint(1, 99)))
-
-    results = []
-    for future in concurrent.futures.as_completed(futures):
-        results.append(future.result())
-
-    print(results)
+    results = executor.map(
+        crawl_page,
+        [f"https://jsonplaceholder.typicode.com/posts/{i}" for i in range(1, 100)],
+    )
+    for result in results:
+        print(result)
