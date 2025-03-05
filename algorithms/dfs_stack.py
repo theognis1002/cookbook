@@ -24,11 +24,11 @@
     Graphical representation:
          0
         / \
-        1   2
-        / \   \
-        3   4   5
-             \
-              6
+       1   2
+      / \   \
+     3   4   5
+              \
+               6
 """
 
 
@@ -45,3 +45,9 @@ def dfs(graph, start):
             for child_node in graph[node]:
                 if child_node not in visited:
                     stack.append(child_node)
+
+
+if __name__ == "__main__":
+    graph = {0: [1, 2], 1: [3, 4], 2: [5], 3: [], 4: [6], 5: [], 6: []}
+
+    dfs(graph, 0)

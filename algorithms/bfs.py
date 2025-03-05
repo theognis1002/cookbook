@@ -44,6 +44,13 @@ def bfs(graph, start):
             visited.add(node)
             print(node)
 
+            # Add all the children of the current node to the queue
             for child_node in graph[node]:
                 if child_node not in visited:
                     queue.append(child_node)
+
+
+if __name__ == "__main__":
+    graph = {0: [1, 2], 1: [3, 4], 2: [5], 3: [], 4: [5], 5: []}
+
+    bfs(graph, 0)
