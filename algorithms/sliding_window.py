@@ -26,8 +26,14 @@ def max_sum_subarray(arr, k):
     return max_sum
 
 
+def sliding_window_example(nums, k=3):
+    for i in range(len(nums) - k + 1):
+        print(nums[i : i + k])
+
+
 if __name__ == "__main__":
     # Example usage
     arr = [1, 4, 2, 10, 23, 3, 1, 0, 20]
     k = 4
-    print("Maximum sum of subarray of length", k, "is", max_sum_subarray(arr, k))
+    # print("Maximum sum of subarray of length", k, "is", max_sum_subarray(arr, k))
+    sliding_window_example(arr)
