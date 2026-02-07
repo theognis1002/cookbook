@@ -1,0 +1,1 @@
+Remove all excessive and unnecessary inline comments. We can keep TODO/FIXME's, "gotchas" comments, inline comments for complicated logic that helps the developer understand the code. Keep file and function comments. Do this for the pending changes on the current branch.
